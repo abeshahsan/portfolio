@@ -15,14 +15,26 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
 	const theme = manualTheme ?? preferred;
 
 	useEffect(() => {
+		if (typeof document === "undefined") return undefined;
 		document.documentElement.classList.toggle("dark", theme === "dark");
 		document.documentElement.style.setProperty("color-scheme", theme);
+		document.documentElement.setAttribute("data-theme", theme);
 		if (manualTheme) {
 			window.localStorage.setItem(STORAGE_KEY, manualTheme);
 		} else {
 			window.localStorage.removeItem(STORAGE_KEY);
 		}
 	}, [theme, manualTheme]);
+
+	useEffect(() => {
+		if (typeof window === "undefined") return undefined;
+		const handleStorage = (event: StorageEvent) => {
+			if (event.key !== STORAGE_KEY) return;
+			setManualTheme((event.newValue as ThemeMode | null) ?? null);
+		};
+		window.addEventListener("storage", handleStorage);
+		return () => window.removeEventListener("storage", handleStorage);
+	}, []);
 
 	const value = useMemo(
 		() => ({
@@ -39,3 +51,4 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
 
 	return <ThemeContext.Provider value={value}>{children}</ThemeContext.Provider>;
 }
+

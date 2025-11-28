@@ -24,3 +24,4 @@ export interface ContactFormValues {
 	email: string;
 	message: string;
 }
+

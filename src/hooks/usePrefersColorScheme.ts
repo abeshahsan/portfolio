@@ -19,3 +19,4 @@ export function usePrefersColorScheme(): ThemeMode {
 
 	return mode;
 }
+
