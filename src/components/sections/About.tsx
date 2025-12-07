@@ -42,16 +42,16 @@ export default function About() {
 				/>
 				<div className='space-y-4 text-base leading-relaxed text-slate-600/95 dark:text-slate-300/90'>
 					<p>
-						My name is Abesh Ahsan, and I am a graduate in Computer Science and Engineering from IUT, where I earned a CGPA of 3.72. I have hands-on experience with various real-world projects in desktop, mobile, web development, and machine learning. My passion lies in software development, as I believe that practical creation is the most effective way to learn. I enthusiastically embrace new technologies as I encounter them.
+						My name is <strong className='text-slate-900 dark:text-white'>Abesh Ahsan</strong>, and I am a graduate in <strong>Computer Science and Engineering</strong> from <strong className='text-emerald-700 dark:text-emerald-300'>IUT</strong>, where I earned a CGPA of <strong className='text-emerald-600 dark:text-emerald-400'>3.72</strong>. I have <em>hands-on experience</em> with various real-world projects in <strong>desktop</strong>, <strong>mobile</strong>, <strong>web development</strong>, and <strong>machine learning</strong>. My passion lies in software development, as I believe that <em className='text-emerald-700 dark:text-emerald-300'>practical creation is the most effective way to learn</em>. I enthusiastically embrace new technologies as I encounter them.
 					</p>
 					<p>
-						I enjoy managing projects from conception to completion, engaging in all aspects, including design, coding, debugging, and refining the product until it meets my standards. Recently, I have been exploring technologies, such as React, Next.js, Flutter, PyQt, Unity, and Node.js, each offering a unique opportunity to create something impactful.
+						I enjoy managing projects from <em>conception to completion</em>, engaging in all aspects, including <strong>design</strong>, <strong>coding</strong>, <strong>debugging</strong>, and <strong>refining the product</strong> until it meets my standards. Recently, I have been exploring technologies, such as <strong className='text-sky-600 dark:text-sky-400'>React</strong>, <strong className='text-slate-900 dark:text-white'>Next.js</strong>, <strong className='text-sky-600 dark:text-sky-400'>Flutter</strong>, <strong>PyQt</strong>, <strong className='text-slate-900 dark:text-white'>Unity</strong>, and <strong className='text-emerald-600 dark:text-emerald-400'>Node.js</strong>, each offering a unique opportunity to create something impactful.
 					</p>
 					<p>
-						For my undergraduate thesis, I focused on transformer-based <i>weakly supervised semantic segmentation</i>, which significantly improved the capture of fine-grained details in images. This project enhanced my understanding of transformers, computer vision, and research methodologies.
+						For my undergraduate thesis, I focused on <em className='text-purple-700 dark:text-purple-300'>transformer-based weakly supervised semantic segmentation</em>, which significantly improved the capture of <strong>fine-grained details</strong> in images. This project enhanced my understanding of <strong>transformers</strong>, <strong>computer vision</strong>, and <strong>research methodologies</strong>.
 					</p>
 					<p>
-						I actively seek opportunities to learn quickly and apply my knowledge effectively in real-world scenarios. I am committed to continuously expanding my skill set and staying informed about emerging technologies, which enables me to tackle complex challenges and deliver innovative solutions.
+						I actively seek opportunities to <strong>learn quickly</strong> and <strong>apply my knowledge effectively</strong> in real-world scenarios. I am committed to <em>continuously expanding my skill set</em> and staying informed about <strong className='text-emerald-700 dark:text-emerald-300'>emerging technologies</strong>, which enables me to tackle <strong>complex challenges</strong> and deliver <strong className='text-emerald-600 dark:text-emerald-400'>innovative solutions</strong>.
 					</p>
 				</div>
 				<div className='grid gap-6 md:grid-cols-2'>

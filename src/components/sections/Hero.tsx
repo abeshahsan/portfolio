@@ -9,13 +9,13 @@ const CTA_LINKS = [
 ];
 
 const HIGHLIGHTS = [
-	{ icon: HiAcademicCap, text: "Research: Developed transformer-based weakly supervised semantic segmentation model achieving 50% mIoU" },
+	{ icon: HiAcademicCap, text: <><strong className='text-emerald-700 dark:text-emerald-300'>Research:</strong> Developed <em>transformer-based weakly supervised semantic segmentation</em> model achieving <strong className='text-emerald-600 dark:text-emerald-400'>50% mIoU</strong></> },
 	{
 		icon: HiCode,
-		text: "Key Projects: ChessDuel (real-time multiplayer chess), Voice Reminder (NLU-powered task manager), Photo Wizard (NumPy-based image editor)",
+		text: <><strong className='text-emerald-700 dark:text-emerald-300'>Key Projects:</strong> <strong>ChessDuel</strong> <span className='text-slate-500 dark:text-slate-400'>(real-time multiplayer chess)</span>, <strong>Voice Reminder</strong> <span className='text-slate-500 dark:text-slate-400'>(NLU-powered task manager)</span>, <strong>Photo Wizard</strong> <span className='text-slate-500 dark:text-slate-400'>(NumPy-based image editor)</span></>,
 	},
-	{ icon: HiBriefcase, text: "Experience: Game Development Trainee at Battery Low Interactive specializing in Unity, C#, and interactive gameplay" },
-	{ icon: HiLightBulb, text: "Actively seeking software engineering opportunities to contribute to innovative projects and teams" },
+	{ icon: HiBriefcase, text: <><strong className='text-emerald-700 dark:text-emerald-300'>Experience:</strong> Game Development Trainee at <strong>Battery Low Interactive</strong> specializing in <em>Unity, C#, and interactive gameplay</em></> },
+	{ icon: HiLightBulb, text: <>Actively seeking <strong className='text-emerald-600 dark:text-emerald-400'>software engineering opportunities</strong> to contribute to innovative projects and teams</> },
 ];
 
 export default function Hero() {
@@ -44,10 +44,10 @@ export default function Hero() {
 					<span className='block text-emerald-600 dark:text-emerald-400'>Transforming Ideas into Scalable Solutions</span>
 				</h1>
 				<p className='text-lg font-medium text-slate-700 dark:text-slate-200'>
-					I create cutting-edge desktop, mobile, and web applications with an emphasis on clean architecture. I am a quick learner, passionate about technology, and committed to solving problems.
+					I create <strong className='text-slate-900 dark:text-white'>cutting-edge</strong> desktop, mobile, and web applications with an emphasis on <em className='text-emerald-700 dark:text-emerald-300'>clean architecture</em>. I am a <strong>quick learner</strong>, passionate about technology, and committed to <strong>solving problems</strong>.
 				</p>
 				<p className='text-base leading-relaxed text-slate-600 dark:text-slate-300'>
-					I am a recent graduate with a degree in Computer Science and Engineering from IUT, and I am deeply passionate about developing software that makes a meaningful impact across all layers of technology. My experience encompasses creating desktop tools, mobile applications, full-stack and machine learning. I take great pleasure in learning new technologies and applying them to address practical challenges effectively.
+					I am a recent graduate with a degree in <strong>Computer Science and Engineering</strong> from <strong className='text-emerald-700 dark:text-emerald-300'>IUT</strong>, and I am deeply passionate about developing software that makes a <em>meaningful impact</em> across all layers of technology. My experience encompasses creating <strong>desktop tools</strong>, <strong>mobile applications</strong>, <strong>full-stack</strong> and <strong>machine learning</strong>. I take great pleasure in learning new technologies and applying them to address practical challenges effectively.
 				</p>
 					<ul className='space-y-3 text-sm text-slate-600 dark:text-slate-300'>
 						{HIGHLIGHTS.map((item, index) => {

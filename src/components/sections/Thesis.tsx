@@ -28,17 +28,9 @@ export default function Thesis() {
 							</span>
 						</div>
 						<div className='space-y-4 text-base leading-relaxed text-slate-600 dark:text-slate-300'>
-							<p>
-								Enhancing fine-grained object understanding in weakly supervised semantic
-								segmentation—where just image-level labels are available rather than expensive
-								pixel-level masks—was the main emphasis of my undergraduate thesis. The primary goal was
-								to develop more accurate and detailed Class Activation Maps (CAMs), which serve as the
-								foundation for segmentation pipelines with minimal supervision. I employed UniCL
-								alongside a Swin Transformer, opting for this combination over commonly used encoders
-								such as CLIP or ViT, to enhance the capture of local features. The windowed
-								self-attention mechanism of the Swin Transformer enabled better local feature
-								representation and greater spatial consistency.
-							</p>
+						<p>
+							Enhancing <em className='text-purple-700 dark:text-purple-300'>fine-grained object understanding</em> in <strong>weakly supervised semantic segmentation</strong>—where just <em>image-level labels</em> are available rather than expensive <em>pixel-level masks</em>—was the main emphasis of my undergraduate thesis. The primary goal was to develop more accurate and detailed <strong className='text-purple-700 dark:text-purple-300'>Class Activation Maps (CAMs)</strong>, which serve as the foundation for segmentation pipelines with minimal supervision. I employed <strong className='text-purple-600 dark:text-purple-400'>UniCL</strong> alongside a <strong className='text-purple-600 dark:text-purple-400'>Swin Transformer</strong>, opting for this combination over commonly used encoders such as <span className='font-semibold'>CLIP</span> or <span className='font-semibold'>ViT</span>, to enhance the capture of <em>local features</em>. The <em className='text-purple-700 dark:text-purple-300'>windowed self-attention mechanism</em> of the Swin Transformer enabled better <strong>local feature representation</strong> and greater <strong>spatial consistency</strong>.
+						</p>
 							<p>I experimented with multiple stages of the WSSS pipeline, including:</p>
 							<ul className='space-y-2 text-sm'>
 								<li className='flex items-start gap-3'>
@@ -63,13 +55,9 @@ export default function Thesis() {
 									</span>
 								</li>
 							</ul>
-							<p>
-								My method generated segmentation masks with clearer boundaries, more uniform region
-								coverage, and enhanced preservation of fine details compared to conventional techniques.
-								The final model achieved a mean IoU of 50%, which, while below the SOTA benchmark, (mean
-								IoU of 74%), demonstrated significant improvements in local detail sharpness, object
-								boundary accuracy, and spatial coherence across many categories.
-							</p>
+						<p>
+							My method generated segmentation masks with <strong className='text-emerald-700 dark:text-emerald-300'>clearer boundaries</strong>, <strong>more uniform region coverage</strong>, and <strong>enhanced preservation of fine details</strong> compared to conventional techniques. The final model achieved a <strong className='text-purple-700 dark:text-purple-300'>mean IoU of 50%</strong>, which, while below the <em>SOTA benchmark</em> <span className='text-slate-500 dark:text-slate-400'>(mean IoU of 74%)</span>, demonstrated <strong className='text-emerald-600 dark:text-emerald-400'>significant improvements</strong> in <em>local detail sharpness</em>, <em>object boundary accuracy</em>, and <em>spatial coherence</em> across many categories.
+						</p>
 							<div className='mt-6 rounded-xl border border-purple-100/70 bg-purple-50/50 p-4 dark:border-purple-500/20 dark:bg-purple-500/5'>
 								<h4 className='mb-3 text-sm font-semibold uppercase tracking-wider text-purple-600 dark:text-purple-300'>
 									This project strengthened my practical understanding of:
