@@ -45,15 +45,15 @@ export default function Skills() {
 		};
 	}, []);
 
-	return (
+		return (
 		<motion.section
 			id='skills'
 			className='rounded-[2.25rem] border border-slate-100/70 bg-linear-to-br from-white via-emerald-50/40 to-white p-10 shadow-[0_40px_120px_-80px] shadow-emerald-500/20 dark:border-slate-800/70 dark:from-slate-900 dark:via-slate-950 dark:to-slate-900'
-			initial={{ opacity: 0, y: 32 }}
-			whileInView={{ opacity: 1, y: 0 }}
-			viewport={{ once: true, amount: 0.3 }}
-			transition={{ duration: 0.55, ease: "easeOut" }}
-		>
+			initial={{ opacity: 0, scale: 0.9, y: 30 }}
+			whileInView={{ opacity: 1, scale: 1, y: 0 }}
+			viewport={{ once: true, amount: 0.15 }}
+			transition={{ duration: 0.6, ease: [0.34, 1.56, 0.64, 1] }}
+			>
 			<div className='space-y-8'>
 				<SectionHeader
 					label='Skills'

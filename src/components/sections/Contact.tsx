@@ -11,14 +11,14 @@ const CONTACT_INFO = [
 ];
 
 export default function Contact() {
-	return (
+		return (
 		<motion.section
 			id='contact'
 			className='rounded-3xl sm:rounded-[2.25rem] border border-slate-100/70 bg-linear-to-br from-white via-slate-50 to-emerald-50/35 p-6 sm:p-8 md:p-10 shadow-[0_50px_140px_-90px] shadow-emerald-500/25 dark:border-slate-800/70 dark:from-slate-900 dark:via-slate-950 dark:to-slate-900'
-			initial={{ opacity: 0, y: 32 }}
-			whileInView={{ opacity: 1, y: 0 }}
-			viewport={{ once: true, amount: 0.3 }}
-			transition={{ duration: 0.55, ease: "easeOut" }}
+			initial={{ opacity: 0, scale: 0.92 }}
+			whileInView={{ opacity: 1, scale: 1 }}
+			viewport={{ once: true, amount: 0.15 }}
+			transition={{ duration: 0.65, ease: [0.16, 1, 0.3, 1] }}
 			>
 			<div className='grid gap-6 sm:gap-8 md:gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-center'>
 			<div className='space-y-4 sm:space-y-6'>

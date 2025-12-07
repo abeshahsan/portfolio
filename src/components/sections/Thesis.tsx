@@ -2,32 +2,32 @@ import { motion } from "framer-motion";
 import SectionHeader from "../common/SectionHeader";
 
 export default function Thesis() {
-	return (
+		return (
 		<motion.section
 			id='thesis'
-			className='rounded-[2.25rem] border border-slate-100/70 bg-linear-to-br from-white via-purple-50/40 to-white p-10 shadow-[0_40px_120px_-80px] shadow-purple-500/20 dark:border-slate-800/70 dark:from-slate-900 dark:via-slate-950 dark:to-slate-900'
-			initial={{ opacity: 0, y: 32 }}
-			whileInView={{ opacity: 1, y: 0 }}
-			viewport={{ once: true, amount: 0.3 }}
-			transition={{ duration: 0.55, ease: "easeOut" }}
-		>
-			<div className='space-y-8'>
+			className='rounded-3xl sm:rounded-[2.25rem] border border-slate-100/70 bg-linear-to-br from-white via-purple-50/40 to-white p-6 sm:p-8 md:p-10 shadow-[0_40px_120px_-80px] shadow-purple-500/20 dark:border-slate-800/70 dark:from-slate-900 dark:via-slate-950 dark:to-slate-900'
+			initial={{ opacity: 0, x: -60 }}
+			whileInView={{ opacity: 1, x: 0 }}
+			viewport={{ once: true, amount: 0.1 }}
+			transition={{ duration: 0.7, ease: [0.22, 0.61, 0.36, 1] }}
+			>
+			<div className='space-y-6 sm:space-y-8'>
 				<SectionHeader
 					label='Thesis'
 					title='Research in computer vision'
 					copy='Exploring weakly supervised methods for semantic segmentation.'
 				/>
-				<div className='space-y-6'>
-					<div className='rounded-2xl border border-slate-100/80 bg-linear-to-br from-white/90 via-purple-50/30 to-white/90 p-6 shadow-[0_30px_80px_-60px] shadow-purple-500/15 dark:border-slate-800 dark:from-slate-900/80 dark:via-slate-900/40 dark:to-slate-900/80'>
-						<div className='mb-4 flex flex-col gap-2 sm:flex-row sm:items-start sm:justify-between'>
-							<h3 className='text-xl font-semibold text-slate-900 dark:text-white'>
+				<div className='space-y-4 sm:space-y-6'>
+					<div className='rounded-2xl border border-slate-100/80 bg-linear-to-br from-white/90 via-purple-50/30 to-white/90 p-4 sm:p-6 shadow-[0_30px_80px_-60px] shadow-purple-500/15 dark:border-slate-800 dark:from-slate-900/80 dark:via-slate-900/40 dark:to-slate-900/80'>
+						<div className='mb-3 sm:mb-4 flex flex-col gap-2 sm:flex-row sm:items-start sm:justify-between'>
+							<h3 className='text-base sm:text-xl font-semibold text-slate-900 dark:text-white'>
 								Weakly Supervised Semantic Segmentation Using Transformer-Based Feature Extraction
 							</h3>
 							<span className='text-sm font-medium text-slate-500 dark:text-slate-400 sm:shrink-0'>
 								January 2024 – October 2025
 							</span>
 						</div>
-						<div className='space-y-4 text-base leading-relaxed text-slate-600 dark:text-slate-300 text-justify'>
+						<div className='space-y-3 sm:space-y-4 text-sm sm:text-base leading-relaxed text-slate-600 dark:text-slate-300 text-left'>
 						<p>
 							Enhancing <em className='text-purple-700 dark:text-purple-300'>fine-grained object understanding</em> in <strong>weakly supervised semantic segmentation</strong>—where just <em>image-level labels</em> are available rather than expensive <em>pixel-level masks</em>—was the main emphasis of my undergraduate thesis. The primary goal was to develop more accurate and detailed <strong className='text-purple-700 dark:text-purple-300'>Class Activation Maps (CAMs)</strong>, which serve as the foundation for segmentation pipelines with minimal supervision. I employed <strong className='text-purple-600 dark:text-purple-400'>UniCL</strong> alongside a <strong className='text-purple-600 dark:text-purple-400'>Swin Transformer</strong>, opting for this combination over commonly used encoders such as <span className='font-semibold'>CLIP</span> or <span className='font-semibold'>ViT</span>, to enhance the capture of <em>local features</em>. The <em className='text-purple-700 dark:text-purple-300'>windowed self-attention mechanism</em> of the Swin Transformer enabled better <strong>local feature representation</strong> and greater <strong>spatial consistency</strong>.
 						</p>

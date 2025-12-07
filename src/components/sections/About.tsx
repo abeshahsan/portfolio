@@ -29,10 +29,10 @@ export default function About() {
 		<motion.section
 			id='about'
 			className='rounded-3xl sm:rounded-[2.25rem] border border-slate-100/70 bg-linear-to-br from-white via-slate-50 to-emerald-50/25 p-6 sm:p-8 md:p-10 shadow-[0_40px_120px_-80px] shadow-emerald-500/20 dark:border-slate-800/70 dark:from-slate-900 dark:via-slate-950 dark:to-slate-900'
-			initial={{ opacity: 0, y: 32 }}
-			whileInView={{ opacity: 1, y: 0 }}
-			viewport={{ once: true, amount: 0.3 }}
-			transition={{ duration: 0.5, ease: "easeOut" }}
+			initial={{ opacity: 0, y: 50, scale: 0.95 }}
+			whileInView={{ opacity: 1, y: 0, scale: 1 }}
+			viewport={{ once: true, amount: 0.15 }}
+			transition={{ duration: 0.6, ease: [0.22, 0.61, 0.36, 1] }}
 			>
 			<div className='space-y-6 sm:space-y-8'>
 				<SectionHeader
@@ -40,7 +40,7 @@ export default function About() {
 					title='Continuous learner, passionate builder'
 					copy='Recent graduate combining practical software engineering with machine learning research experience.'
 				/>
-				<div className='space-y-3 sm:space-y-4 text-sm sm:text-base leading-relaxed text-slate-600/95 dark:text-slate-300/90 text-justify'>
+				<div className='space-y-3 sm:space-y-4 text-sm sm:text-base leading-relaxed text-slate-600/95 dark:text-slate-300/90 text-left'>
 					<p>
 						My name is <strong className='text-slate-900 dark:text-white'>Abesh Ahsan</strong>, and I am a graduate in <strong>Computer Science and Engineering</strong> from <strong className='text-emerald-700 dark:text-emerald-300'>IUT</strong>, where I earned a CGPA of <strong className='text-emerald-600 dark:text-emerald-400'>3.72</strong>. I have <em>hands-on experience</em> with various real-world projects in <strong>desktop</strong>, <strong>mobile</strong>, <strong>web development</strong>, and <strong>machine learning</strong>. My passion lies in software development, as I believe that <em className='text-emerald-700 dark:text-emerald-300'>practical creation is the most effective way to learn</em>. I enthusiastically embrace new technologies as I encounter them.
 					</p>

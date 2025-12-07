@@ -57,14 +57,14 @@ export default function Projects() {
 		return projects.filter((project: Project & { categoryId?: string }) => project.categoryId === filter);
 	}, [projects, filter]);
 
-	return (
+		return (
 		<motion.section
 			id='projects'
 			className='rounded-3xl sm:rounded-[2.25rem] border border-slate-100/70 bg-linear-to-br from-white via-slate-50 to-emerald-50/30 p-6 sm:p-8 md:p-10 shadow-[0_40px_160px_-80px] shadow-emerald-500/25 dark:border-slate-800/70 dark:from-slate-900 dark:via-slate-950 dark:to-slate-900'
-			initial={{ opacity: 0, y: 32 }}
+			initial={{ opacity: 0, y: 40 }}
 			whileInView={{ opacity: 1, y: 0 }}
-			viewport={{ once: true, amount: 0.2 }}
-			transition={{ duration: 0.55, ease: "easeOut" }}
+			viewport={{ once: true, amount: 0.1 }}
+			transition={{ duration: 0.65, ease: [0.25, 0.46, 0.45, 0.94] }}
 			>
 			<div className='space-y-6 sm:space-y-8'>
 				<SectionHeader
@@ -147,7 +147,7 @@ function ProjectDialog({ project, onClose }: { project: Project; onClose: () => 
 						&times;
 					</button>
 				</div>
-				<p className='mt-3 sm:mt-4 text-xs sm:text-sm text-slate-200 text-justify'>{project.description}</p>
+				<p className='mt-3 sm:mt-4 text-xs sm:text-sm text-slate-200 text-left'>{project.description}</p>
 				<ul className='mt-4 sm:mt-6 flex flex-wrap gap-1.5 sm:gap-2'>
 					{project.stack.map((item) => (
 						<li

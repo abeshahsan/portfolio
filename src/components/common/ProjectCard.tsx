@@ -39,7 +39,7 @@ export default function ProjectCard({ project, onSelect }: ProjectCardProps) {
 					{project.category ?? ""}
 				</span>
 			</div>
-			<p className='mt-2 sm:mt-3 text-xs sm:text-sm text-slate-600 dark:text-slate-300 text-justify'>
+			<p className='mt-2 sm:mt-3 text-xs sm:text-sm text-slate-600 dark:text-slate-300 text-left'>
 				{displayDescription}
 			</p>
 			<ul className='mt-3 sm:mt-4 flex flex-wrap gap-1.5 sm:gap-2'>

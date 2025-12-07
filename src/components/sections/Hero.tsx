@@ -67,10 +67,10 @@ export default function Hero() {
 					</picture>
 				</div>
 				</motion.div>
-				<p className='text-base sm:text-lg font-medium text-slate-700 dark:text-slate-200 text-justify'>
+				<p className='text-base sm:text-lg font-medium text-slate-700 dark:text-slate-200 text-left'>
 					I create <strong className='text-slate-900 dark:text-white'>cutting-edge</strong> desktop, mobile, and web applications with an emphasis on <em className='text-emerald-700 dark:text-emerald-300'>clean architecture</em>. I am a <strong>quick learner</strong>, passionate about technology, and committed to <strong>solving problems</strong>.
 				</p>
-				<p className='text-sm sm:text-base leading-relaxed text-slate-600 dark:text-slate-300 text-justify'>
+				<p className='text-sm sm:text-base leading-relaxed text-slate-600 dark:text-slate-300 text-left'>
 					I am a recent graduate with a degree in <strong>Computer Science and Engineering</strong> from <strong className='text-emerald-700 dark:text-emerald-300'>IUT</strong>, and I am deeply passionate about developing software that makes a <em>meaningful impact</em> across all layers of technology. My experience encompasses creating <strong>desktop tools</strong>, <strong>mobile applications</strong>, <strong>full-stack</strong> and <strong>machine learning</strong>. I take great pleasure in learning new technologies and applying them to address practical challenges effectively.
 				</p>
 					<ul className='space-y-2 sm:space-y-3 text-xs sm:text-sm text-slate-600 dark:text-slate-300'>
@@ -82,7 +82,7 @@ export default function Hero() {
 									className='flex items-start gap-2 sm:gap-3 rounded-lg border border-slate-100/50 bg-white/40 p-2 sm:p-3 backdrop-blur-sm transition hover:border-emerald-200/70 hover:bg-white/60 dark:border-slate-800/50 dark:bg-slate-900/40 dark:hover:border-emerald-500/30 dark:hover:bg-slate-900/60'
 								>
 									<Icon className='mt-0.5 h-4 w-4 sm:h-5 sm:w-5 shrink-0 text-emerald-600 dark:text-emerald-400' />
-									<span className='text-justify'>{item.text}</span>
+									<span className='text-left'>{item.text}</span>
 								</li>
 							);
 						})}
