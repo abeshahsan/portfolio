@@ -6,8 +6,8 @@ import { HiMail, HiPhone, HiLocationMarker, HiClock } from "react-icons/hi";
 const CONTACT_INFO = [
 	{ label: "Email", value: "abeshahsan2002@gmail.com", href: "mailto:abeshahsan2002@gmail.com", icon: HiMail },
 	{ label: "Phone", value: "+880 17-960-3333-1", href: "tel:+8801796033331", icon: HiPhone },
-	{ label: "Location", value: "Thakurgaon, Bangladesh", icon: HiLocationMarker },
-	{ label: "Availability", value: "Open to full-time roles and internships", icon: HiClock },
+	{ label: "Location", value: "Uttara, Dhaka, Bangladesh", icon: HiLocationMarker },
+	{ label: "Availability", value: "Open to junior developer or software engineer roles", icon: HiClock },
 ];
 
 export default function Contact() {
@@ -25,7 +25,7 @@ export default function Contact() {
 					<SectionHeader
 						label='Contact'
 						title="Let's connect"
-						copy='Open to opportunities in software development and ML. Let’s build something great together.'
+						copy="Open to opportunities in software development and ML. Let\'s build something great together."
 					/>
 					<ul className='grid gap-3 text-sm text-slate-600 dark:text-slate-300'>
 						{CONTACT_INFO.map((item) => {
@@ -48,7 +48,9 @@ export default function Contact() {
 												{item.value}
 											</a>
 										) : (
-											<span className='font-semibold text-slate-900 dark:text-slate-100'>{item.value}</span>
+											<span className='font-semibold text-slate-900 dark:text-slate-100'>
+												{item.value}
+											</span>
 										)}
 									</div>
 								</li>
