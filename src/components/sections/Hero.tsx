@@ -98,14 +98,17 @@ export default function Hero() {
 						aria-hidden='true'
 					/>
 				<div className='relative overflow-hidden rounded-4xl border border-white/70 bg-white shadow-2xl dark:border-slate-800 dark:bg-slate-900'>
-					<img
-						src={`${import.meta.env.BASE_URL}photo-bugs.png`}
-						alt='Abesh portrait'
-						className='h-full w-full object-cover'
+					<picture>
+						<source srcSet={`${import.meta.env.BASE_URL}photo-bugs.webp`} type='image/webp' />
+						<img
+							src={`${import.meta.env.BASE_URL}photo-bugs.png`}
+							alt='Abesh portrait'
+							className='h-full w-full object-cover'
 							loading='lazy'
 							decoding='async'
 						/>
-					</div>
+					</picture>
+				</div>
 				</motion.div>
 			</div>
 		</motion.section>
