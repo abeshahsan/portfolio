@@ -6,9 +6,11 @@ import path from "path";
 
 // https://vite.dev/config/
 export default defineConfig({
+	base: '/Portfolio/',
 	plugins: [react(), tailwindcss(), compression({ algorithm: "brotliCompress" }), compression({ algorithm: "gzip" })],
 	build: {
 		minify: "esbuild",
+		outDir: 'dist',
 	},
 	resolve: {
 		alias: {
