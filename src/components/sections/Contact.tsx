@@ -1,11 +1,13 @@
 import SectionHeader from "../common/SectionHeader";
 import ContactForm from "../common/ContactForm";
 import { motion } from "framer-motion";
+import { HiMail, HiPhone, HiLocationMarker, HiClock } from "react-icons/hi";
 
 const CONTACT_INFO = [
-	{ label: "Email", value: "hello@abesh.dev", href: "mailto:hello@abesh.dev" },
-	{ label: "Location", value: "Toronto, Canada" },
-	{ label: "Availability", value: "Open to senior/principal roles" },
+	{ label: "Email", value: "abeshahsan2002@gmail.com", href: "mailto:abeshahsan2002@gmail.com", icon: HiMail },
+	{ label: "Phone", value: "+880 17-960-3333-1", href: "tel:+8801796033331", icon: HiPhone },
+	{ label: "Location", value: "Thakurgaon, Bangladesh", icon: HiLocationMarker },
+	{ label: "Availability", value: "Open to full-time roles and internships", icon: HiClock },
 ];
 
 export default function Contact() {
@@ -22,30 +24,36 @@ export default function Contact() {
 				<div className='space-y-6'>
 					<SectionHeader
 						label='Contact'
-						title="Let's collaborate"
-						copy='Fueled by teams shipping user-focused ML, design systems, and platform tooling.'
+						title="Let's connect"
+						copy='Open to opportunities in software development and ML. Let’s build something great together.'
 					/>
-					<ul className='grid gap-3 text-sm text-slate-600 dark:text-slate-300 sm:grid-cols-2'>
-						{CONTACT_INFO.map((item) => (
-							<li
-								key={item.label}
-								className='flex flex-col gap-1 rounded-2xl border border-white/70 bg-white/70 px-4 py-3 backdrop-blur dark:border-slate-800/70 dark:bg-slate-900/50 sm:gap-2'
-							>
-								<span className='text-xs uppercase tracking-[0.4em] text-emerald-500 dark:text-emerald-300'>
-									{item.label}
-								</span>
-								{item.href ? (
-									<a
-										href={item.href}
-										className='font-semibold text-slate-900 transition hover:text-emerald-500 dark:text-white'
-									>
-										{item.value}
-									</a>
-								) : (
-									<span className='font-semibold text-slate-900 dark:text-white'>{item.value}</span>
-								)}
-							</li>
-						))}
+					<ul className='grid gap-3 text-sm text-slate-600 dark:text-slate-300'>
+						{CONTACT_INFO.map((item) => {
+							const Icon = item.icon;
+							return (
+								<li
+									key={item.label}
+									className='flex gap-3 rounded-2xl border border-slate-200/70 bg-gradient-to-br from-white to-slate-50/50 px-4 py-4 backdrop-blur transition hover:border-emerald-200 hover:shadow-md dark:border-slate-800/70 dark:from-slate-900/80 dark:to-slate-900/50 dark:hover:border-emerald-500/30'
+								>
+									<Icon className='mt-1 h-5 w-5 shrink-0 text-emerald-600 dark:text-emerald-400' />
+									<div className='flex flex-col gap-1'>
+										<span className='text-xs font-semibold uppercase tracking-[0.3em] text-emerald-600 dark:text-emerald-400'>
+											{item.label}
+										</span>
+										{item.href ? (
+											<a
+												href={item.href}
+												className='break-all font-semibold text-slate-900 transition hover:text-emerald-600 dark:text-slate-100 dark:hover:text-emerald-400'
+											>
+												{item.value}
+											</a>
+										) : (
+											<span className='font-semibold text-slate-900 dark:text-slate-100'>{item.value}</span>
+										)}
+									</div>
+								</li>
+							);
+						})}
 					</ul>
 				</div>
 				<ContactForm />

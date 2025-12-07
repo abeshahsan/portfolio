@@ -1,14 +1,23 @@
-import { useMemo } from "react";
 import { motion } from "framer-motion";
+import { FiExternalLink, FiMail } from "react-icons/fi";
+import { HiAcademicCap, HiBriefcase, HiLightBulb, HiCode } from "react-icons/hi";
 
 const CTA_LINKS = [
-	{ label: "Projects", href: "#projects", primary: true },
-	{ label: "Contact", href: "#contact", primary: false },
+	{ label: "View My Projects", href: "#projects", primary: true, icon: FiExternalLink },
+	{ label: "Contact Me", href: "#contact", primary: false, icon: FiMail },
+];
+
+const HIGHLIGHTS = [
+	{ icon: HiAcademicCap, text: "Thesis: Transformer-based weakly supervised semantic segmentation (Achieved mIoU 50%)" },
+	{
+		icon: HiCode,
+		text: "Projects: ChessDuel (real-time multiplayer), Voice Reminder (speech + NLU), Photo Wizard (from-scratch image editor)",
+	},
+	{ icon: HiBriefcase, text: "Experience: Game Development Trainee at Battery Low Interactive — Unity, C#, physics, UI" },
+	{ icon: HiLightBulb, text: "Currently seeking full-time roles where I can grow and contribute" },
 ];
 
 export default function Hero() {
-	const currentRolodex = useMemo(() => ["Engineer", "Product Architect", "ML tinkerer"], []);
-
 	return (
 		<motion.section
 			id='hero'
@@ -27,46 +36,54 @@ export default function Hero() {
 			<div className='relative z-10 flex flex-col gap-10 text-center md:grid md:grid-cols-[1.1fr_0.9fr] md:items-center md:text-left'>
 				<div className='space-y-6'>
 					<p className='text-sm uppercase tracking-[0.6em] text-emerald-600 dark:text-emerald-300'>
-						Hello, I am
+						Hi — I'm Abesh Ahsan
 					</p>
-					<h1 className='text-4xl font-semibold leading-tight text-slate-900 dark:text-white md:text-5xl'>
-						Abesh Ahsan
-						<span className='ml-3 inline-flex items-center rounded-full bg-linear-to-r from-white via-emerald-50 to-white px-3 py-1 text-base font-medium text-emerald-700 shadow-sm dark:from-slate-800/80 dark:via-emerald-500/20 dark:to-slate-800/80 dark:text-emerald-200'>
-							Building calm, scalable products
-						</span>
+					<h1 className='text-2xl font-bold leading-tight text-slate-900 dark:text-white md:text-3xl lg:text-4xl'>
+						Software Developer & ML Enthusiast
+						<span className='block text-emerald-600 dark:text-emerald-400'>Always Building Something New</span>
 					</h1>
-					<p className='text-lg text-slate-600 dark:text-slate-300'>
-						Full-stack engineer crafting resilient platforms across web, mobile, and machine learning. I
-						obsess over typography, performance budgets, and human-centered developer experience.
+					<p className='text-lg font-medium text-slate-700 dark:text-slate-200'>
+						I create modern web, mobile, desktop, and vision-based AI applications. Fast learner, framework
+						explorer, and passionate builder.
 					</p>
-					<div className='flex flex-wrap justify-center gap-4 md:justify-start'>
-						{CTA_LINKS.map((cta) => (
-							<motion.a
-								key={cta.href}
-								href={cta.href}
-								className={
-									cta.primary
-										? "inline-flex w-full items-center justify-center rounded-full bg-linear-to-r from-emerald-500 via-emerald-400 to-sky-400 px-6 py-3 text-sm font-semibold text-white transition hover:translate-y-0.5 hover:brightness-105 sm:w-auto"
-									: "inline-flex w-full items-center justify-center rounded-full border border-emerald-100/70 bg-white/80 px-6 py-3 text-sm font-semibold text-emerald-700 transition hover:border-emerald-300 hover:text-emerald-500 dark:border-emerald-500/30 dark:bg-slate-900/60 dark:text-emerald-200 sm:w-auto"
-								}
-								whileHover={{ y: 2, scale: 1.01 }}
-								whileTap={{ scale: 0.99 }}
-							>
-								{cta.label}
-							</motion.a>
-						))}
-					</div>
-					<ul className='flex flex-wrap justify-center gap-4 text-sm text-slate-500 dark:text-slate-400 md:justify-start'>
-						{currentRolodex.map((item) => (
-							<li
-								key={item}
-								className='flex items-center gap-2'
-							>
-								<span className='h-1.5 w-1.5 rounded-full bg-emerald-500 dark:bg-emerald-400' />
-								{item}
-							</li>
-						))}
+					<p className='text-base leading-relaxed text-slate-600 dark:text-slate-300'>
+						CSE graduate from IUT who loves turning ideas into real products. I work across full-stack development, mobile apps, desktop tools, and machine learning — especially semantic segmentation. I learn fast, adapt quickly, and continuously push myself to build better software.
+					</p>
+					<ul className='space-y-3 text-sm text-slate-600 dark:text-slate-300'>
+						{HIGHLIGHTS.map((item, index) => {
+							const Icon = item.icon;
+							return (
+								<li
+									key={index}
+									className='flex items-start gap-3 rounded-lg border border-slate-100/50 bg-white/40 p-3 backdrop-blur-sm transition hover:border-emerald-200/70 hover:bg-white/60 dark:border-slate-800/50 dark:bg-slate-900/40 dark:hover:border-emerald-500/30 dark:hover:bg-slate-900/60'
+								>
+									<Icon className='mt-0.5 h-5 w-5 shrink-0 text-emerald-600 dark:text-emerald-400' />
+									<span>{item.text}</span>
+								</li>
+							);
+						})}
 					</ul>
+					<div className='flex flex-wrap justify-center gap-4 md:justify-start'>
+						{CTA_LINKS.map((cta) => {
+							const Icon = cta.icon;
+							return (
+								<motion.a
+									key={cta.href}
+									href={cta.href}
+									className={
+										cta.primary
+											? "inline-flex w-full items-center justify-center gap-2 rounded-full bg-linear-to-r from-emerald-500 via-emerald-400 to-sky-400 px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-emerald-500/30 transition hover:shadow-xl hover:brightness-105 dark:shadow-emerald-500/20 sm:w-auto"
+											: "inline-flex w-full items-center justify-center gap-2 rounded-full border border-emerald-100/70 bg-white/80 px-6 py-3 text-sm font-semibold text-emerald-700 transition hover:border-emerald-300 hover:bg-white hover:text-emerald-600 dark:border-emerald-500/30 dark:bg-slate-900/60 dark:text-emerald-200 dark:hover:border-emerald-400/50 dark:hover:bg-slate-900/80 sm:w-auto"
+									}
+									whileHover={{ y: -2, scale: 1.02 }}
+									whileTap={{ scale: 0.98 }}
+								>
+									{cta.label}
+									<Icon className='h-4 w-4' />
+								</motion.a>
+							);
+						})}
+					</div>
 				</div>
 				<motion.div
 					className='relative'

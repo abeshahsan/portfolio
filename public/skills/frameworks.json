@@ -1,8 +1,12 @@
 [
   { "name": "React", "level": "Advanced", "favorite": true },
-  { "name": "Next.js", "level": "Advanced" },
+  { "name": "Next.js", "level": "Advanced", "favorite": true },
+  { "name": "Flutter", "level": "Advanced", "favorite": true },
   { "name": "Node.js", "level": "Advanced" },
-  { "name": "Express", "level": "Advanced" },
+  { "name": "Express.js", "level": "Advanced" },
+  { "name": "PyTorch", "level": "Intermediate" },
   { "name": "Tailwind CSS", "level": "Advanced" },
-  { "name": "TensorFlow", "level": "Intermediate" }
+  { "name": "PyQt6", "level": "Intermediate" },
+  { "name": "JavaFX", "level": "Intermediate" },
+  { "name": "Unity", "level": "Intermediate" }
 ]

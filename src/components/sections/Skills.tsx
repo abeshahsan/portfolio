@@ -57,8 +57,8 @@ export default function Skills() {
 			<div className='space-y-8'>
 				<SectionHeader
 					label='Skills'
-					title='Tools I rely on'
-					copy='Continuously evolving stack spanning product, platform, and ML systems.'
+					title='Technical Stack'
+					copy='Languages, frameworks, and tools I use to build modern applications.'
 				/>
 				{status === "loading" ? <LoadingState label='Loading skills' /> : null}
 				{status === "error" ? (

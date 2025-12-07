@@ -1,19 +1,10 @@
 [
   {
-    "id": "pulse-vision",
-    "title": "PulseVision",
-    "description": "Computer-vision pipeline that detects surface cracks on aircraft fuselage imagery with on-device quantization.",
-    "stack": ["Python", "TensorFlow", "OpenCV"],
-    "github": "https://github.com/abeshahsan/pulse-vision",
-    "demo": null,
-    "image": null
-  },
-  {
-    "id": "forecast-hub",
-    "title": "ForecastHub",
-    "description": "Hybrid time-series models that forecast rider demand for micro-mobility fleets with automated anomaly alerts.",
-    "stack": ["Python", "Prophet", "AWS"],
-    "github": "https://github.com/abeshahsan/forecast-hub",
+    "id": "thesis-wsss",
+    "title": "Weakly Supervised Semantic Segmentation With Image Labels",
+    "description": "Pioneered a transformer-based approach to enhance object detail understanding in weakly supervised segmentation. Replaced traditional encoders like CLIP/ViT with UniCL using a Swin Transformer, enabling finer local feature extraction through windowed attention. Experimented with multiple CAM generation and refinement methods, improving affinity calculations and leveraging encoder intermediate features. The model produced highly detailed masks for most classes, achieving a mean IoU of 50%, offering clear improvements in fine-grained segmentation.",
+    "stack": ["Python", "PyTorch", "Swin Transformer", "UniCL", "CAM"],
+    "github": "https://github.com/abeshahsan/weakly-supervised-segmentation",
     "demo": null,
     "image": null
   }

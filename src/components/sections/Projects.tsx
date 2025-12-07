@@ -7,7 +7,9 @@ import type { Project } from "../../types/data";
 
 const PROJECT_SOURCES = [
 	{ id: "web", label: "Web", path: "/projects/web.json" },
-	{ id: "ml", label: "Machine Learning", path: "/projects/ml.json" },
+	{ id: "mobile", label: "Mobile", path: "/projects/mobile.json" },
+	{ id: "desktop", label: "Desktop", path: "/projects/desktop.json" },
+	{ id: "ml", label: "ML", path: "/projects/ml.json" },
 ];
 
 export default function Projects() {

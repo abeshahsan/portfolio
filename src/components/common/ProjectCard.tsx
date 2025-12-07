@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import type { Project } from "../../types/data";
+import { FiGithub, FiExternalLink } from "react-icons/fi";
 
 
 const chipPalette = [
@@ -20,6 +21,11 @@ interface ProjectCardProps {
 
 export default function ProjectCard({ project, onSelect }: ProjectCardProps) {
 	const categoryTone = categoryAccent[project.category ?? ""] ?? "text-emerald-500";
+	const maxLength = 120;
+	const isTruncated = project.description.length > maxLength;
+	const displayDescription = isTruncated 
+		? project.description.slice(0, maxLength) + "..."
+		: project.description;
 
 	return (
 		<motion.article
@@ -34,7 +40,7 @@ export default function ProjectCard({ project, onSelect }: ProjectCardProps) {
 				</span>
 			</div>
 			<p className='mt-3 text-sm text-slate-600 dark:text-slate-300'>
-				{project.description}
+				{displayDescription}
 			</p>
 			<ul className='mt-4 flex flex-wrap gap-2'>
 				{project.stack.map((item, index) => (
@@ -47,33 +53,37 @@ export default function ProjectCard({ project, onSelect }: ProjectCardProps) {
 				))}
 			</ul>
 			<div className='mt-6 flex flex-wrap gap-3'>
-				{project.demo ?
+				{project.demo && (
 					<a
 						href={project.demo}
 						target='_blank'
-						rel='noreferrer'
-						className='inline-flex items-center gap-2 rounded-full border border-transparent bg-emerald-500 px-4 py-2 text-sm font-semibold text-white transition hover:bg-emerald-400'
+						rel='noopener noreferrer'
+						className='inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-emerald-500 to-sky-500 px-5 py-2.5 text-sm font-semibold text-white shadow-lg shadow-emerald-500/30 transition hover:shadow-xl hover:brightness-105 dark:shadow-emerald-500/20'
 					>
+						<FiExternalLink className='h-4 w-4' />
 						View Demo
 					</a>
-				:	null}
-				{project.github ?
+				)}
+				{project.github && (
 					<a
 						href={project.github}
 						target='_blank'
-						rel='noreferrer'
-						className='inline-flex items-center gap-2 rounded-full border border-slate-200 px-4 py-2 text-sm font-semibold text-slate-800 transition hover:border-slate-400 dark:border-slate-700 dark:text-slate-100'
+						rel='noopener noreferrer'
+						className='inline-flex items-center gap-2 rounded-full border border-slate-200/70 bg-white/80 px-5 py-2.5 text-sm font-semibold text-slate-700 transition hover:border-slate-300 hover:bg-white hover:shadow-md dark:border-slate-700/70 dark:bg-slate-900/80 dark:text-slate-200 dark:hover:border-slate-600 dark:hover:bg-slate-900'
 					>
+						<FiGithub className='h-4 w-4' />
 						GitHub
 					</a>
-				:	null}
-				<button
-					type='button'
-					className='inline-flex items-center gap-2 rounded-full border border-emerald-100/60 px-4 py-2 text-sm font-semibold text-emerald-600 transition hover:border-emerald-300 hover:text-emerald-500 dark:border-emerald-500/20 dark:text-emerald-300'
-					onClick={() => onSelect?.(project)}
-				>
-					Details
-				</button>
+				)}
+				{isTruncated && (
+					<button
+						type='button'
+						className='inline-flex items-center gap-2 rounded-full border border-emerald-100/60 bg-white/70 px-5 py-2.5 text-sm font-semibold text-emerald-600 transition hover:border-emerald-300 hover:bg-emerald-50 hover:text-emerald-500 dark:border-emerald-500/20 dark:bg-slate-900/60 dark:text-emerald-300 dark:hover:bg-slate-900/80'
+						onClick={() => onSelect?.(project)}
+					>
+						Details
+					</button>
+				)}
 			</div>
 		</motion.article>
 	);

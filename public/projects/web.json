@@ -1,20 +1,29 @@
 [
   {
-    "id": "immersive-portfolio",
-    "title": "Immersive Portfolio",
-    "description": "A motion-rich personal site with adaptive theming, glassmorphism panels, and MDX-powered blog tooling.",
-    "stack": ["React", "Vite", "Tailwind", "MDX"],
-    "github": "https://github.com/abeshahsan/immersive-portfolio",
-    "demo": "https://abesh.dev",
+    "id": "chessduel",
+    "title": "ChessDuel",
+    "description": "Real-time Multiplayer Chess Platform — Developed with Next.js and TypeScript using an MVC-style architecture with Mongoose models, service layer, and API controllers. Implemented secure NextAuth OAuth authentication with strict email validation and JWT session checks. Designed for scalability, maintainability, and clean separation of concerns.",
+    "stack": ["Next.js", "MongoDB", "NextAuth", "JWT", "Socket.io", "Redux Toolkit", "Material-UI"],
+    "github": "https://github.com/abeshahsan/ChessDuel",
+    "demo": null,
     "image": null
   },
   {
-    "id": "studio-ops",
-    "title": "StudioOps Dashboard",
-    "description": "Full-stack analytics dashboard for creative studios featuring realtime briefs, asset approvals, and multi-tenant auth.",
-    "stack": ["Next.js", "tRPC", "PostgreSQL", "Tailwind"],
-    "github": "https://github.com/abeshahsan/studio-ops",
-    "demo": "https://studio-ops.app",
+    "id": "leetvscode",
+    "title": "LeetVSCode",
+    "description": "An intelligent task management VS Code extension with a split-screen interface. Features advanced task organization and intelligent behavior for enhanced productivity.",
+    "stack": ["VS Code Extension API", "Node.js", "React.js", "Tailwind CSS"],
+    "github": "https://github.com/abeshahsan/LeetVSCode",
+    "demo": null,
+    "image": null
+  },
+  {
+    "id": "tilawah",
+    "title": "Tilawah",
+    "description": "A single-page web application (SPA) for listening to Quran recitations from various Qaris. Features include seamless playback with resume support, search by Surah or Qari, favorites, playlist management, and live updates – all implemented using EJS and jQuery without modern frontend frameworks.",
+    "stack": ["jQuery", "JavaScript", "Axios", "EJS", "Node.js", "Express.js", "MySQL"],
+    "github": "https://github.com/abeshahsan/Tilawah",
+    "demo": null,
     "image": null
   }
 ]

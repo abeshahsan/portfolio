@@ -71,7 +71,7 @@ export default function ContactForm() {
 			<button
 				type='submit'
 				disabled={status === "submitting"}
-				className='mt-6 w-full rounded-full bg-linear-to-r from-emerald-500 via-emerald-400 to-sky-400 px-6 py-3 text-center text-sm font-semibold text-white shadow-lg shadow-emerald-500/30 transition hover:brightness-105 disabled:cursor-not-allowed disabled:opacity-70 dark:from-emerald-400 dark:via-sky-500 dark:to-emerald-500'
+				className='mt-6 w-full rounded-full bg-linear-to-r from-emerald-500 via-emerald-400 to-sky-400 px-6 py-3 text-center text-sm font-semibold text-white shadow-lg shadow-emerald-500/30 transition hover:scale-105 hover:shadow-xl hover:brightness-105 disabled:cursor-not-allowed disabled:opacity-70 disabled:hover:scale-100 dark:from-emerald-400 dark:via-sky-500 dark:to-emerald-500 dark:shadow-emerald-500/20'
 			>
 				{status === "sent" ? "Message sent" : status === "submitting" ? "Sending..." : "Send message"}
 			</button>

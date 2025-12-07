@@ -2,6 +2,8 @@ import Header from "./components/layout/Header";
 import Footer from "./components/layout/Footer";
 import Hero from "./components/sections/Hero";
 import About from "./components/sections/About";
+import Thesis from "./components/sections/Thesis";
+import Experience from "./components/sections/Experience";
 import Skills from "./components/sections/Skills";
 import Projects from "./components/sections/Projects";
 import Contact from "./components/sections/Contact";
@@ -11,13 +13,15 @@ import { useDocumentHead } from "./hooks/useDocumentHead";
 const SECTION_CONFIG = [
 	{ id: "hero", title: "Home" },
 	{ id: "about", title: "About" },
+	{ id: "thesis", title: "Thesis" },
+	{ id: "experience", title: "Experience" },
 	{ id: "skills", title: "Skills" },
 	{ id: "projects", title: "Projects" },
 	{ id: "contact", title: "Contact" },
 ];
 
 const BASE_DESCRIPTION =
-	"Abesh Ahsan is a software engineer building calm, scalable web and ML products across developer tooling and platforms.";
+	"Abesh Ahsan - CSE graduate from IUT building modern web, mobile, desktop applications and ML systems. Passionate about full-stack development and computer vision.";
 const SHARE_IMAGE = "https://abesh.dev/social-card.png";
 const SHARE_URL = "https://abesh.dev/";
 
@@ -43,6 +47,8 @@ export default function Portfolio() {
 			<main className='mx-auto flex w-full max-w-6xl flex-col gap-12 px-4 py-12 sm:gap-16 sm:px-6 sm:py-16 lg:px-8'>
 				<Hero />
 				<About />
+				<Thesis />
+				<Experience />
 				<Skills />
 				<Projects />
 				<Contact />
