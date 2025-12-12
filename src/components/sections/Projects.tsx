@@ -4,6 +4,7 @@ import SectionHeader from "../common/SectionHeader";
 import LoadingState from "../common/LoadingState";
 import ProjectCard from "../common/ProjectCard";
 import type { Project } from "../../types/data";
+import { sectionVariants, containerVariants, VIEWPORT } from "../../utils/animations";
 
 const PROJECT_SOURCES = [
 	{ id: "web", label: "Web", path: `${import.meta.env.BASE_URL}projects/web.json` },
@@ -57,16 +58,22 @@ export default function Projects() {
 		return projects.filter((project: Project & { categoryId?: string }) => project.categoryId === filter);
 	}, [projects, filter]);
 
-		return (
+	return (
 		<motion.section
 			id='projects'
 			className='rounded-3xl sm:rounded-[2.25rem] border border-slate-100/70 bg-linear-to-br from-white via-slate-50 to-emerald-50/30 p-6 sm:p-8 md:p-10 shadow-[0_40px_160px_-80px] shadow-emerald-500/25 dark:border-slate-800/70 dark:from-slate-900 dark:via-slate-950 dark:to-slate-900'
-			initial={{ opacity: 0, y: 40 }}
-			whileInView={{ opacity: 1, y: 0 }}
-			viewport={{ once: true, amount: 0.1 }}
-			transition={{ duration: 0.65, ease: [0.25, 0.46, 0.45, 0.94] }}
+			variants={sectionVariants}
+			initial='hidden'
+			whileInView='visible'
+			viewport={VIEWPORT.default}
+		>
+			<motion.div
+				className='space-y-6 sm:space-y-8'
+				variants={containerVariants}
+				initial='hidden'
+				whileInView='visible'
+				viewport={VIEWPORT.default}
 			>
-			<div className='space-y-6 sm:space-y-8'>
 				<SectionHeader
 					label='Projects'
 					title='Selected work'
@@ -75,7 +82,7 @@ export default function Projects() {
 				<div
 					className='flex flex-wrap gap-2 sm:gap-3 text-xs sm:text-sm font-semibold'
 					aria-label='Project filters'
-					>
+				>
 					{["all", ...PROJECT_SOURCES.map((s) => s.id)].map((value) => {
 						const label =
 							value === "all" ? "All" : PROJECT_SOURCES.find((s) => s.id === value)?.label ?? value;
@@ -84,10 +91,10 @@ export default function Projects() {
 								key={value}
 								type='button'
 								onClick={() => setFilter(value)}
-								className={`rounded-full px-3 py-1.5 sm:px-4 sm:py-2 whitespace-nowrap transition ${
+								className={`rounded-full px-3 py-1.5 sm:px-4 sm:py-2 whitespace-nowrap transition-all duration-200 ${
 									filter === value
 										? "bg-emerald-500 text-white"
-									: "border border-slate-200 bg-white/80 text-slate-600 hover:border-emerald-400 hover:text-emerald-500 dark:border-slate-700 dark:bg-slate-900/60 dark:text-slate-200"
+										: "border border-slate-200 bg-white/80 text-slate-600 hover:border-emerald-400 hover:text-emerald-500 dark:border-slate-700 dark:bg-slate-900/60 dark:text-slate-200"
 								}`}
 							>
 								{label}
@@ -110,7 +117,7 @@ export default function Projects() {
 						/>
 					))}
 				</div>
-			</div>
+			</motion.div>
 			{activeProject ? (
 				<ProjectDialog
 					project={activeProject}
@@ -132,10 +139,12 @@ function ProjectDialog({ project, onClose }: { project: Project; onClose: () => 
 			<div
 				className='max-w-xl max-h-[90vh] overflow-y-auto rounded-3xl border border-slate-700/80 bg-slate-900/90 p-6 sm:p-8 text-white shadow-2xl'
 				onClick={(event) => event.stopPropagation()}
-				>
+			>
 				<div className='flex items-start justify-between gap-4'>
 					<div>
-						<p className='text-[10px] sm:text-xs uppercase tracking-[0.3em] sm:tracking-[0.4em] text-emerald-400'>{project.category}</p>
+						<p className='text-[10px] sm:text-xs uppercase tracking-[0.3em] sm:tracking-[0.4em] text-emerald-400'>
+							{project.category}
+						</p>
 						<h3 className='text-lg sm:text-2xl font-semibold'>{project.title}</h3>
 					</div>
 					<button

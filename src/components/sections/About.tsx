@@ -1,10 +1,15 @@
 import SectionHeader from "../common/SectionHeader";
 import { motion } from "framer-motion";
-import { HiAcademicCap, HiBriefcase, HiDownload } from "react-icons/hi";
+import { HiAcademicCap, HiBriefcase } from "react-icons/hi";
 import { SiReact, SiFlutter, SiPython, SiUnity, SiE } from "react-icons/si";
+import { sectionVariants, containerVariants, itemVariants, VIEWPORT } from "../../utils/animations";
 
 const EDUCATION = [
-	{ school: "Islamic University of Technology (IUT)", detail: "BSc, Computer Science & Engineering (CGPA: 3.72)", icon: HiAcademicCap },
+	{
+		school: "Islamic University of Technology (IUT)",
+		detail: "BSc, Computer Science & Engineering (CGPA: 3.72)",
+		icon: HiAcademicCap,
+	},
 	{ school: "Battery Low Interactive", detail: "Game Development Trainee (Oct 2024)", icon: HiBriefcase },
 ];
 
@@ -29,33 +34,75 @@ export default function About() {
 		<motion.section
 			id='about'
 			className='rounded-3xl sm:rounded-[2.25rem] border border-slate-100/70 bg-linear-to-br from-white via-slate-50 to-emerald-50/25 p-6 sm:p-8 md:p-10 shadow-[0_40px_120px_-80px] shadow-emerald-500/20 dark:border-slate-800/70 dark:from-slate-900 dark:via-slate-950 dark:to-slate-900'
-			initial={{ opacity: 0, y: 50, scale: 0.95 }}
-			whileInView={{ opacity: 1, y: 0, scale: 1 }}
-			viewport={{ once: true, amount: 0.15 }}
-			transition={{ duration: 0.6, ease: [0.22, 0.61, 0.36, 1] }}
+			variants={sectionVariants}
+			initial='hidden'
+			whileInView='visible'
+			viewport={VIEWPORT.default}
+		>
+			<motion.div
+				className='space-y-6 sm:space-y-8'
+				variants={containerVariants}
+				initial='hidden'
+				whileInView='visible'
+				viewport={VIEWPORT.default}
 			>
-			<div className='space-y-6 sm:space-y-8'>
 				<SectionHeader
 					label='About'
 					title='Continuous learner, passionate builder'
 					copy='Recent graduate combining practical software engineering with machine learning research experience.'
 				/>
-				<div className='space-y-3 sm:space-y-4 text-sm sm:text-base leading-relaxed text-slate-600/95 dark:text-slate-300/90 text-left'>
-					<p>
-						My name is <strong className='text-slate-900 dark:text-white'>Abesh Ahsan</strong>, and I am a graduate in <strong>Computer Science and Engineering</strong> from <strong className='text-emerald-700 dark:text-emerald-300'>IUT</strong>, where I earned a CGPA of <strong className='text-emerald-600 dark:text-emerald-400'>3.72</strong>. I have <em>hands-on experience</em> with various real-world projects in <strong>desktop</strong>, <strong>mobile</strong>, <strong>web development</strong>, and <strong>machine learning</strong>. My passion lies in software development, as I believe that <em className='text-emerald-700 dark:text-emerald-300'>practical creation is the most effective way to learn</em>. I enthusiastically embrace new technologies as I encounter them.
-					</p>
-					<p>
-						I enjoy managing projects from <em>conception to completion</em>, engaging in all aspects, including <strong>design</strong>, <strong>coding</strong>, <strong>debugging</strong>, and <strong>refining the product</strong> until it meets my standards. Recently, I have been exploring technologies, such as <strong className='text-sky-600 dark:text-sky-400'>React</strong>, <strong className='text-slate-900 dark:text-white'>Next.js</strong>, <strong className='text-sky-600 dark:text-sky-400'>Flutter</strong>, <strong>PyQt</strong>, <strong className='text-slate-900 dark:text-white'>Unity</strong>, and <strong className='text-emerald-600 dark:text-emerald-400'>Node.js</strong>, each offering a unique opportunity to create something impactful.
-					</p>
-					<p>
-						For my undergraduate thesis, I focused on <em className='text-purple-700 dark:text-purple-300'>transformer-based weakly supervised semantic segmentation</em>, which significantly improved the capture of <strong>fine-grained details</strong> in images. This project enhanced my understanding of <strong>transformers</strong>, <strong>computer vision</strong>, and <strong>research methodologies</strong>.
-					</p>
-					<p>
-						I actively seek opportunities to <strong>learn quickly</strong> and <strong>apply my knowledge effectively</strong> in real-world scenarios. I am committed to <em>continuously expanding my skill set</em> and staying informed about <strong className='text-emerald-700 dark:text-emerald-300'>emerging technologies</strong>, which enables me to tackle <strong>complex challenges</strong> and deliver <strong className='text-emerald-600 dark:text-emerald-400'>innovative solutions</strong>.
-					</p>
-				</div>
+				<motion.div
+					className='space-y-3 sm:space-y-4 text-sm sm:text-base leading-relaxed text-slate-600/95 dark:text-slate-300/90 text-left'
+					variants={containerVariants}
+				>
+					<motion.p variants={itemVariants}>
+						My name is <strong className='text-slate-900 dark:text-white'>Abesh Ahsan</strong>, and I am a
+						graduate in <strong>Computer Science and Engineering</strong> from{" "}
+						<strong className='text-emerald-700 dark:text-emerald-300'>IUT</strong>, where I earned a CGPA
+						of <strong className='text-emerald-600 dark:text-emerald-400'>3.72</strong>. I have{" "}
+						<em>hands-on experience</em> with various real-world projects in <strong>desktop</strong>,{" "}
+						<strong>mobile</strong>, <strong>web development</strong>, and <strong>machine learning</strong>
+						. My passion lies in software development, as I believe that{" "}
+						<em className='text-emerald-700 dark:text-emerald-300'>
+							practical creation is the most effective way to learn
+						</em>
+						. I enthusiastically embrace new technologies as I encounter them.
+					</motion.p>
+					<motion.p variants={itemVariants}>
+						I enjoy managing projects from <em>conception to completion</em>, engaging in all aspects,
+						including <strong>design</strong>, <strong>coding</strong>, <strong>debugging</strong>, and{" "}
+						<strong>refining the product</strong> until it meets my standards. Recently, I have been
+						exploring technologies, such as{" "}
+						<strong className='text-sky-600 dark:text-sky-400'>React</strong>,{" "}
+						<strong className='text-slate-900 dark:text-white'>Next.js</strong>,{" "}
+						<strong className='text-sky-600 dark:text-sky-400'>Flutter</strong>, <strong>PyQt</strong>,{" "}
+						<strong className='text-slate-900 dark:text-white'>Unity</strong>, and{" "}
+						<strong className='text-emerald-600 dark:text-emerald-400'>Node.js</strong>, each offering a
+						unique opportunity to create something impactful.
+					</motion.p>
+					<motion.p variants={itemVariants}>
+						For my undergraduate thesis, I focused on{" "}
+						<em className='text-purple-700 dark:text-purple-300'>
+							transformer-based weakly supervised semantic segmentation
+						</em>
+						, which significantly improved the capture of <strong>fine-grained details</strong> in images.
+						This project enhanced my understanding of <strong>transformers</strong>,{" "}
+						<strong>computer vision</strong>, and <strong>research methodologies</strong>.
+					</motion.p>
+					<motion.p variants={itemVariants}>
+						I actively seek opportunities to <strong>learn quickly</strong> and{" "}
+						<strong>apply my knowledge effectively</strong> in real-world scenarios. I am committed to{" "}
+						<em>continuously expanding my skill set</em> and staying informed about{" "}
+						<strong className='text-emerald-700 dark:text-emerald-300'>emerging technologies</strong>, which
+						enables me to tackle <strong>complex challenges</strong> and deliver{" "}
+						<strong className='text-emerald-600 dark:text-emerald-400'>innovative solutions</strong>.
+					</motion.p>
+				</motion.div>
 				<div className='grid gap-4 sm:gap-6 md:grid-cols-2'>
-					<div className='space-y-3 sm:space-y-4 rounded-2xl border border-slate-100/70 bg-linear-to-br from-white/95 via-slate-50/50 to-white/90 p-4 sm:p-6 shadow-[0_25px_80px_-70px] shadow-slate-900/15 dark:border-slate-800 dark:from-slate-900/80 dark:via-slate-900/40 dark:to-slate-900/80'>
+					<motion.div
+						className='space-y-3 sm:space-y-4 rounded-2xl border border-slate-100/70 bg-linear-to-br from-white/95 via-slate-50/50 to-white/90 p-4 sm:p-6 shadow-[0_25px_80px_-70px] shadow-slate-900/15 dark:border-slate-800 dark:from-slate-900/80 dark:via-slate-900/40 dark:to-slate-900/80'
+						variants={itemVariants}
+					>
 						<h3 className='flex items-center gap-2 text-xs sm:text-sm font-semibold uppercase tracking-[0.3em] sm:tracking-[0.4em] text-emerald-600 dark:text-emerald-400'>
 							<HiAcademicCap className='h-5 w-5' />
 							Education
@@ -64,18 +111,28 @@ export default function About() {
 							{EDUCATION.map((item) => {
 								const Icon = item.icon;
 								return (
-									<li key={item.school} className='flex gap-2 sm:gap-3 rounded-lg border border-slate-100/50 bg-white/50 p-2.5 sm:p-3 dark:border-slate-800/50 dark:bg-slate-950/30'>
+									<li
+										key={item.school}
+										className='flex gap-2 sm:gap-3 rounded-lg border border-slate-100/50 bg-white/50 p-2.5 sm:p-3 dark:border-slate-800/50 dark:bg-slate-950/30'
+									>
 										<Icon className='mt-1 h-4 w-4 sm:h-5 sm:w-5 shrink-0 text-emerald-600 dark:text-emerald-400' />
-									<div>
-										<p className='text-sm sm:text-base font-medium text-slate-900 dark:text-slate-100'>{item.school}</p>
-										<p className='text-xs sm:text-sm text-slate-600 dark:text-slate-400'>{item.detail}</p>
+										<div>
+											<p className='text-sm sm:text-base font-medium text-slate-900 dark:text-slate-100'>
+												{item.school}
+											</p>
+											<p className='text-xs sm:text-sm text-slate-600 dark:text-slate-400'>
+												{item.detail}
+											</p>
 										</div>
 									</li>
 								);
 							})}
 						</ul>
-					</div>
-					<div className='space-y-3 sm:space-y-4 rounded-2xl border border-slate-100/70 bg-linear-to-br from-white/95 via-emerald-50/40 to-white/90 p-4 sm:p-6 shadow-[0_25px_80px_-70px] shadow-emerald-500/15 dark:border-slate-800 dark:from-slate-900/80 dark:via-slate-900/40 dark:to-slate-900/80'>
+					</motion.div>
+					<motion.div
+						className='space-y-3 sm:space-y-4 rounded-2xl border border-slate-100/70 bg-linear-to-br from-white/95 via-emerald-50/40 to-white/90 p-4 sm:p-6 shadow-[0_25px_80px_-70px] shadow-emerald-500/15 dark:border-slate-800 dark:from-slate-900/80 dark:via-slate-900/40 dark:to-slate-900/80'
+						variants={itemVariants}
+					>
 						<h3 className='flex items-center gap-2 text-xs sm:text-sm font-semibold uppercase tracking-[0.3em] sm:tracking-[0.4em] text-sky-600 dark:text-sky-400'>
 							<SiReact className='h-5 w-5' />
 							Interests
@@ -96,17 +153,9 @@ export default function About() {
 								);
 							})}
 						</ul>
-						<a
-							href={`${import.meta.env.BASE_URL}Abesh_Ahsan__CV.pdf`}
-							className='inline-flex items-center gap-1.5 sm:gap-2 rounded-full border border-emerald-200/70 bg-linear-to-r from-emerald-50 to-sky-50 px-4 py-2 sm:px-5 sm:py-2.5 text-xs sm:text-sm font-semibold text-emerald-700 shadow-sm transition hover:scale-105 hover:border-emerald-300 hover:shadow-md dark:border-emerald-500/30 dark:from-emerald-500/10 dark:to-sky-500/10 dark:text-emerald-300 dark:hover:border-emerald-400/50'
-							download
-							>
-							<HiDownload className='h-3 w-3 sm:h-4 sm:w-4' />
-							Download CV
-						</a>
-					</div>
+					</motion.div>
 				</div>
-			</div>
+			</motion.div>
 		</motion.section>
 	);
 }

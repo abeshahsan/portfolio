@@ -8,6 +8,12 @@
 	color: #0f172a;
 }
 
+/* Smooth scrolling with custom timing */
+html {
+	scroll-behavior: smooth;
+	scroll-padding-top: 80px; /* Account for sticky header */
+}
+
 body {
 	margin: 0;
 	min-height: 100vh;
@@ -26,13 +32,102 @@ body {
 	mask-image: radial-gradient(circle at top, rgba(255, 255, 255, 0.9), transparent 70%);
 }
 
-@media (prefers-reduced-motion: no-preference) {
-	section {
-		transition: transform 0.3s ease, box-shadow 0.3s ease;
+/* ============================================
+   PROFESSIONAL CTA BUTTON ANIMATIONS
+   ============================================ */
+
+/* Primary CTA Button Base */
+.cta-primary {
+	transition: transform 200ms cubic-bezier(0.4, 0, 0.2, 1), box-shadow 200ms cubic-bezier(0.4, 0, 0.2, 1),
+		filter 200ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Desktop Hover - Scale + Shadow Lift */
+@media (hover: hover) and (pointer: fine) {
+	.cta-primary:hover {
+		transform: scale(1.04);
+		filter: brightness(1.05);
+	}
+}
+
+/* Mobile/Touch - Quick tap feedback */
+.cta-primary:active {
+	transform: scale(0.96);
+	transition-duration: 120ms;
+}
+
+/* Secondary CTA Button Base */
+.cta-secondary {
+	transition: transform 200ms cubic-bezier(0.4, 0, 0.2, 1), border-color 200ms cubic-bezier(0.4, 0, 0.2, 1),
+		background-color 200ms cubic-bezier(0.4, 0, 0.2, 1), box-shadow 200ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@media (hover: hover) and (pointer: fine) {
+	.cta-secondary:hover {
+		transform: scale(1.03);
+	}
+}
+
+.cta-secondary:active {
+	transform: scale(0.96);
+	transition-duration: 120ms;
+}
+
+/* Icon slide-in on hover */
+.cta-icon {
+	transition: transform 200ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.cta-primary:hover .cta-icon,
+.cta-secondary:hover .cta-icon {
+	transform: translateX(4px);
+}
+
+/* ============================================
+   CARD HOVER ANIMATIONS
+   ============================================ */
+
+.card-interactive {
+	transition: transform 300ms cubic-bezier(0.4, 0, 0.2, 1), box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1),
+		border-color 300ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@media (hover: hover) and (pointer: fine) {
+	.card-interactive:hover {
+		transform: translateY(-5px);
+	}
+}
+
+/* Card image zoom on hover */
+.card-image-container {
+	overflow: hidden;
+}
+
+.card-image {
+	transition: transform 400ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@media (hover: hover) and (pointer: fine) {
+	.card-interactive:hover .card-image {
+		transform: scale(1.03);
+	}
+}
+
+/* ============================================
+   DISABLE ANIMATIONS FOR REDUCED MOTION
+   ============================================ */
+
+@media (prefers-reduced-motion: reduce) {
+	html {
+		scroll-behavior: auto;
 	}
 
-	section:hover {
-		transform: translateY(-2px);
+	*,
+	*::before,
+	*::after {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		transition-duration: 0.01ms !important;
 	}
 }
 

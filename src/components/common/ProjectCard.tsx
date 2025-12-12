@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import type { Project } from "../../types/data";
 import { FiGithub, FiExternalLink } from "react-icons/fi";
-
+import { cardVariants, VIEWPORT } from "../../utils/animations";
 
 const chipPalette = [
 	"bg-emerald-50 text-emerald-700 dark:bg-emerald-500/10 dark:text-emerald-200",
@@ -23,19 +23,23 @@ export default function ProjectCard({ project, onSelect }: ProjectCardProps) {
 	const categoryTone = categoryAccent[project.category ?? ""] ?? "text-emerald-500";
 	const maxLength = 120;
 	const isTruncated = project.description.length > maxLength;
-	const displayDescription = isTruncated 
-		? project.description.slice(0, maxLength) + "..."
-		: project.description;
+	const displayDescription = isTruncated ? project.description.slice(0, maxLength) + "..." : project.description;
 
-		return (
+	return (
 		<motion.article
-			className='group flex flex-col rounded-2xl sm:rounded-3xl border border-slate-100/70 bg-linear-to-br from-white via-emerald-50/30 to-white p-4 sm:p-6 shadow-lg shadow-emerald-500/10 transition hover:-translate-y-1 hover:border-emerald-300/90 hover:shadow-xl dark:border-slate-800/70 dark:from-slate-900/90 dark:via-slate-950/30 dark:to-slate-900/90 dark:shadow-black/30'
-			whileHover={{ y: -4 }}
-			transition={{ type: "spring", stiffness: 250, damping: 25 }}
-			>
+			className='card-interactive group flex flex-col rounded-2xl sm:rounded-3xl border border-slate-100/70 bg-linear-to-br from-white via-emerald-50/30 to-white p-4 sm:p-6 shadow-lg shadow-emerald-500/10 hover:border-emerald-300/90 hover:shadow-xl dark:border-slate-800/70 dark:from-slate-900/90 dark:via-slate-950/30 dark:to-slate-900/90 dark:shadow-black/30'
+			variants={cardVariants}
+			initial='hidden'
+			whileInView='visible'
+			viewport={VIEWPORT.default}
+		>
 			<div className='flex items-center justify-between gap-2 sm:gap-4'>
-				<h3 className='text-base sm:text-xl font-semibold text-slate-900 dark:text-slate-50'>{project.title}</h3>
-				<span className={`text-[10px] sm:text-xs uppercase tracking-[0.2em] sm:tracking-[0.3em] shrink-0 ${categoryTone}`}>
+				<h3 className='text-base sm:text-xl font-semibold text-slate-900 dark:text-slate-50'>
+					{project.title}
+				</h3>
+				<span
+					className={`text-[10px] sm:text-xs uppercase tracking-[0.2em] sm:tracking-[0.3em] shrink-0 ${categoryTone}`}
+				>
 					{project.category ?? ""}
 				</span>
 			</div>
@@ -46,7 +50,9 @@ export default function ProjectCard({ project, onSelect }: ProjectCardProps) {
 				{project.stack.map((item, index) => (
 					<li
 						key={item}
-						className={`rounded-full px-2.5 py-0.5 sm:px-3 sm:py-1 text-[10px] sm:text-xs font-medium ${chipPalette[index % chipPalette.length]}`}
+						className={`rounded-full px-2.5 py-0.5 sm:px-3 sm:py-1 text-[10px] sm:text-xs font-medium ${
+							chipPalette[index % chipPalette.length]
+						}`}
 					>
 						{item}
 					</li>
@@ -58,9 +64,9 @@ export default function ProjectCard({ project, onSelect }: ProjectCardProps) {
 						href={project.demo}
 						target='_blank'
 						rel='noopener noreferrer'
-						className='inline-flex items-center gap-1.5 sm:gap-2 rounded-full bg-linear-to-r from-emerald-500 to-sky-500 px-4 py-2 sm:px-5 sm:py-2.5 text-xs sm:text-sm font-semibold text-white shadow-lg shadow-emerald-500/30 transition hover:shadow-xl hover:brightness-105 dark:shadow-emerald-500/20'
-						>
-						<FiExternalLink className='h-3 w-3 sm:h-4 sm:w-4' />
+						className='cta-primary inline-flex items-center gap-1.5 sm:gap-2 rounded-full bg-linear-to-r from-emerald-500 to-sky-500 px-4 py-2 sm:px-5 sm:py-2.5 text-xs sm:text-sm font-semibold text-white shadow-lg shadow-emerald-500/30 dark:shadow-emerald-500/20'
+					>
+						<FiExternalLink className='cta-icon h-3 w-3 sm:h-4 sm:w-4' />
 						View Demo
 					</a>
 				)}
@@ -69,18 +75,18 @@ export default function ProjectCard({ project, onSelect }: ProjectCardProps) {
 						href={project.github}
 						target='_blank'
 						rel='noopener noreferrer'
-						className='inline-flex items-center gap-1.5 sm:gap-2 rounded-full border border-slate-200/70 bg-white/80 px-4 py-2 sm:px-5 sm:py-2.5 text-xs sm:text-sm font-semibold text-slate-700 transition hover:border-slate-300 hover:bg-white hover:shadow-md dark:border-slate-700/70 dark:bg-slate-900/80 dark:text-slate-200 dark:hover:border-slate-600 dark:hover:bg-slate-900'
-						>
-						<FiGithub className='h-3 w-3 sm:h-4 sm:w-4' />
+						className='cta-secondary inline-flex items-center gap-1.5 sm:gap-2 rounded-full border border-slate-200/70 bg-white/80 px-4 py-2 sm:px-5 sm:py-2.5 text-xs sm:text-sm font-semibold text-slate-700 hover:border-slate-300 hover:bg-white hover:shadow-md dark:border-slate-700/70 dark:bg-slate-900/80 dark:text-slate-200 dark:hover:border-slate-600 dark:hover:bg-slate-900'
+					>
+						<FiGithub className='cta-icon h-3 w-3 sm:h-4 sm:w-4' />
 						GitHub
 					</a>
 				)}
 				{isTruncated && (
 					<button
 						type='button'
-						className='inline-flex items-center gap-1.5 sm:gap-2 rounded-full border border-emerald-100/60 bg-white/70 px-4 py-2 sm:px-5 sm:py-2.5 text-xs sm:text-sm font-semibold text-emerald-600 transition hover:border-emerald-300 hover:bg-emerald-50 hover:text-emerald-500 dark:border-emerald-500/20 dark:bg-slate-900/60 dark:text-emerald-300 dark:hover:bg-slate-900/80'
+						className='cta-secondary inline-flex items-center gap-1.5 sm:gap-2 rounded-full border border-emerald-100/60 bg-white/70 px-4 py-2 sm:px-5 sm:py-2.5 text-xs sm:text-sm font-semibold text-emerald-600 hover:border-emerald-300 hover:bg-emerald-50 hover:text-emerald-500 dark:border-emerald-500/20 dark:bg-slate-900/60 dark:text-emerald-300 dark:hover:bg-slate-900/80'
 						onClick={() => onSelect?.(project)}
-						>
+					>
 						Details
 					</button>
 				)}

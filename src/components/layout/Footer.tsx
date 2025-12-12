@@ -20,7 +20,7 @@ export default function Footer() {
 								target='_blank'
 								rel='noopener noreferrer'
 								aria-label={social.label}
-								className='rounded-full border border-slate-200/70 bg-white/70 p-2.5 sm:p-3 text-slate-600 transition hover:border-emerald-200 hover:bg-emerald-50 hover:text-emerald-600 hover:scale-110 dark:border-slate-800/70 dark:bg-slate-900/70 dark:text-slate-400 dark:hover:border-emerald-500/30 dark:hover:bg-slate-900 dark:hover:text-emerald-400'
+							className='rounded-full border border-slate-200/70 bg-white/70 p-2.5 sm:p-3 text-slate-600 transition-all duration-200 hover:border-emerald-200 hover:bg-emerald-50 hover:text-emerald-600 hover:scale-110 dark:border-slate-800/70 dark:bg-slate-900/70 dark:text-slate-400 dark:hover:border-emerald-500/30 dark:hover:bg-slate-900 dark:hover:text-emerald-400'
 								>
 								<Icon className='h-4 w-4 sm:h-5 sm:w-5' />
 							</a>

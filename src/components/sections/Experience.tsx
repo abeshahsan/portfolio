@@ -1,17 +1,24 @@
 import { motion } from "framer-motion";
 import SectionHeader from "../common/SectionHeader";
+import { sectionVariants, containerVariants, VIEWPORT } from "../../utils/animations";
 
 export default function Experience() {
-		return (
+	return (
 		<motion.section
 			id='experience'
 			className='rounded-3xl sm:rounded-[2.25rem] border border-slate-100/70 bg-linear-to-br from-white via-sky-50/40 to-white p-6 sm:p-8 md:p-10 shadow-[0_40px_120px_-80px] shadow-sky-500/20 dark:border-slate-800/70 dark:from-slate-900 dark:via-slate-950 dark:to-slate-900'
-			initial={{ opacity: 0, x: 60 }}
-			whileInView={{ opacity: 1, x: 0 }}
-			viewport={{ once: true, amount: 0.1 }}
-			transition={{ duration: 0.7, ease: [0.22, 0.61, 0.36, 1] }}
+			variants={sectionVariants}
+			initial='hidden'
+			whileInView='visible'
+			viewport={VIEWPORT.default}
+		>
+			<motion.div
+				className='space-y-6 sm:space-y-8'
+				variants={containerVariants}
+				initial='hidden'
+				whileInView='visible'
+				viewport={VIEWPORT.default}
 			>
-			<div className='space-y-6 sm:space-y-8'>
 				<SectionHeader
 					label='Experience'
 					title='Building interactive systems'
@@ -23,9 +30,7 @@ export default function Experience() {
 							<h3 className='text-base sm:text-xl font-semibold text-slate-900 dark:text-white'>
 								Game Development Trainee
 							</h3>
-							<span className='text-sm font-medium text-slate-500 dark:text-slate-400'>
-								October 2024
-							</span>
+							<span className='text-sm font-medium text-slate-500 dark:text-slate-400'>October 2024</span>
 						</div>
 						<p className='mb-3 sm:mb-4 text-sm sm:text-base font-medium text-emerald-600 dark:text-emerald-400'>
 							Battery Low Interactive
@@ -33,9 +38,9 @@ export default function Experience() {
 						<div className='space-y-3 sm:space-y-4 text-sm sm:text-base leading-relaxed text-slate-600 dark:text-slate-300 text-left'>
 							<p>
 								During my industrial training at Battery Low Interactive, I learned to design and build
-								games from the ground up using Unity and C#. I developed several mini-games to understand
-								core game mechanics, physics interactions, scoring systems, UI workflows, and scene
-								management.
+								games from the ground up using Unity and C#. I developed several mini-games to
+								understand core game mechanics, physics interactions, scoring systems, UI workflows, and
+								scene management.
 							</p>
 							<p>
 								My final project was a 2D physics-based game where players control a rotating stone and
@@ -64,15 +69,15 @@ export default function Experience() {
 								</li>
 							</ul>
 							<p>
-								I also explored AR/VR fundamentals, animation controllers, and general best practices for
-								interactive system development. The training strengthened my problem-solving skills and
-								improved my understanding of game logic, physics simulation, and real-time interaction
-								design.
+								I also explored AR/VR fundamentals, animation controllers, and general best practices
+								for interactive system development. The training strengthened my problem-solving skills
+								and improved my understanding of game logic, physics simulation, and real-time
+								interaction design.
 							</p>
 						</div>
 					</div>
 				</div>
-			</div>
+			</motion.div>
 		</motion.section>
 	);
 }

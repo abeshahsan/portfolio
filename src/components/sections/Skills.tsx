@@ -4,6 +4,7 @@ import SectionHeader from "../common/SectionHeader";
 import SkillTag from "../common/SkillTag";
 import LoadingState from "../common/LoadingState";
 import type { Skill } from "../../types/data";
+import { sectionVariants, containerVariants, VIEWPORT } from "../../utils/animations";
 
 const SOURCES = [
 	{ id: "languages", label: "Languages", path: `${import.meta.env.BASE_URL}skills/languages.json` },
@@ -45,16 +46,22 @@ export default function Skills() {
 		};
 	}, []);
 
-		return (
+	return (
 		<motion.section
 			id='skills'
 			className='rounded-[2.25rem] border border-slate-100/70 bg-linear-to-br from-white via-emerald-50/40 to-white p-10 shadow-[0_40px_120px_-80px] shadow-emerald-500/20 dark:border-slate-800/70 dark:from-slate-900 dark:via-slate-950 dark:to-slate-900'
-			initial={{ opacity: 0, scale: 0.9, y: 30 }}
-			whileInView={{ opacity: 1, scale: 1, y: 0 }}
-			viewport={{ once: true, amount: 0.15 }}
-			transition={{ duration: 0.6, ease: [0.34, 1.56, 0.64, 1] }}
+			variants={sectionVariants}
+			initial='hidden'
+			whileInView='visible'
+			viewport={VIEWPORT.default}
+		>
+			<motion.div
+				className='space-y-8'
+				variants={containerVariants}
+				initial='hidden'
+				whileInView='visible'
+				viewport={VIEWPORT.default}
 			>
-			<div className='space-y-8'>
 				<SectionHeader
 					label='Skills'
 					title='Technical Stack'
@@ -66,7 +73,11 @@ export default function Skills() {
 						{error}
 					</p>
 				) : null}
-				<div className='grid gap-4 sm:gap-5 sm:grid-cols-2 lg:grid-cols-3'>
+				<div
+					className='grid gap-4 sm:gap-5 sm:grid-cols-2 lg:grid-cols-3'
+					role='list'
+					aria-label='Technical skills by category'
+				>
 					{SOURCES.map((source) => (
 						<div
 							key={source.id}
@@ -86,7 +97,7 @@ export default function Skills() {
 						</div>
 					))}
 				</div>
-			</div>
+			</motion.div>
 		</motion.section>
 	);
 }

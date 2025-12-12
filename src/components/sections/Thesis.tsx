@@ -1,17 +1,24 @@
 import { motion } from "framer-motion";
 import SectionHeader from "../common/SectionHeader";
+import { sectionVariants, containerVariants, VIEWPORT } from "../../utils/animations";
 
 export default function Thesis() {
-		return (
+	return (
 		<motion.section
 			id='thesis'
 			className='rounded-3xl sm:rounded-[2.25rem] border border-slate-100/70 bg-linear-to-br from-white via-purple-50/40 to-white p-6 sm:p-8 md:p-10 shadow-[0_40px_120px_-80px] shadow-purple-500/20 dark:border-slate-800/70 dark:from-slate-900 dark:via-slate-950 dark:to-slate-900'
-			initial={{ opacity: 0, x: -60 }}
-			whileInView={{ opacity: 1, x: 0 }}
-			viewport={{ once: true, amount: 0.1 }}
-			transition={{ duration: 0.7, ease: [0.22, 0.61, 0.36, 1] }}
+			variants={sectionVariants}
+			initial='hidden'
+			whileInView='visible'
+			viewport={VIEWPORT.default}
+		>
+			<motion.div
+				className='space-y-6 sm:space-y-8'
+				variants={containerVariants}
+				initial='hidden'
+				whileInView='visible'
+				viewport={VIEWPORT.default}
 			>
-			<div className='space-y-6 sm:space-y-8'>
 				<SectionHeader
 					label='Thesis'
 					title='Research in computer vision'
@@ -28,9 +35,32 @@ export default function Thesis() {
 							</span>
 						</div>
 						<div className='space-y-3 sm:space-y-4 text-sm sm:text-base leading-relaxed text-slate-600 dark:text-slate-300 text-left'>
-						<p>
-							Enhancing <em className='text-purple-700 dark:text-purple-300'>fine-grained object understanding</em> in <strong>weakly supervised semantic segmentation</strong>—where just <em>image-level labels</em> are available rather than expensive <em>pixel-level masks</em>—was the main emphasis of my undergraduate thesis. The primary goal was to develop more accurate and detailed <strong className='text-purple-700 dark:text-purple-300'>Class Activation Maps (CAMs)</strong>, which serve as the foundation for segmentation pipelines with minimal supervision. I employed <strong className='text-purple-600 dark:text-purple-400'>UniCL</strong> alongside a <strong className='text-purple-600 dark:text-purple-400'>Swin Transformer</strong>, opting for this combination over commonly used encoders such as <span className='font-semibold'>CLIP</span> or <span className='font-semibold'>ViT</span>, to enhance the capture of <em>local features</em>. The <em className='text-purple-700 dark:text-purple-300'>windowed self-attention mechanism</em> of the Swin Transformer enabled better <strong>local feature representation</strong> and greater <strong>spatial consistency</strong>.
-						</p>
+							<p>
+								Enhancing{" "}
+								<em className='text-purple-700 dark:text-purple-300'>
+									fine-grained object understanding
+								</em>{" "}
+								in <strong>weakly supervised semantic segmentation</strong>—where just{" "}
+								<em>image-level labels</em> are available rather than expensive{" "}
+								<em>pixel-level masks</em>—was the main emphasis of my undergraduate thesis. The primary
+								goal was to develop more accurate and detailed{" "}
+								<strong className='text-purple-700 dark:text-purple-300'>
+									Class Activation Maps (CAMs)
+								</strong>
+								, which serve as the foundation for segmentation pipelines with minimal supervision. I
+								employed <strong className='text-purple-600 dark:text-purple-400'>UniCL</strong>{" "}
+								alongside a{" "}
+								<strong className='text-purple-600 dark:text-purple-400'>Swin Transformer</strong>,
+								opting for this combination over commonly used encoders such as{" "}
+								<span className='font-semibold'>CLIP</span> or{" "}
+								<span className='font-semibold'>ViT</span>, to enhance the capture of{" "}
+								<em>local features</em>. The{" "}
+								<em className='text-purple-700 dark:text-purple-300'>
+									windowed self-attention mechanism
+								</em>{" "}
+								of the Swin Transformer enabled better <strong>local feature representation</strong> and
+								greater <strong>spatial consistency</strong>.
+							</p>
 							<p>I experimented with multiple stages of the WSSS pipeline, including:</p>
 							<ul className='space-y-2 text-sm'>
 								<li className='flex items-start gap-3'>
@@ -55,40 +85,53 @@ export default function Thesis() {
 									</span>
 								</li>
 							</ul>
-						<p>
-							My method generated segmentation masks with <strong className='text-emerald-700 dark:text-emerald-300'>clearer boundaries</strong>, <strong>more uniform region coverage</strong>, and <strong>enhanced preservation of fine details</strong> compared to conventional techniques. The final model achieved a <strong className='text-purple-700 dark:text-purple-300'>mean IoU of 50%</strong>, which, while below the <em>SOTA benchmark</em> <span className='text-slate-500 dark:text-slate-400'>(mean IoU of 74%)</span>, demonstrated <strong className='text-emerald-600 dark:text-emerald-400'>significant improvements</strong> in <em>local detail sharpness</em>, <em>object boundary accuracy</em>, and <em>spatial coherence</em> across many categories.
-						</p>
+							<p>
+								My method generated segmentation masks with{" "}
+								<strong className='text-emerald-700 dark:text-emerald-300'>clearer boundaries</strong>,{" "}
+								<strong>more uniform region coverage</strong>, and{" "}
+								<strong>enhanced preservation of fine details</strong> compared to conventional
+								techniques. The final model achieved a{" "}
+								<strong className='text-purple-700 dark:text-purple-300'>mean IoU of 50%</strong>,
+								which, while below the <em>SOTA benchmark</em>{" "}
+								<span className='text-slate-500 dark:text-slate-400'>(mean IoU of 74%)</span>,
+								demonstrated{" "}
+								<strong className='text-emerald-600 dark:text-emerald-400'>
+									significant improvements
+								</strong>{" "}
+								in <em>local detail sharpness</em>, <em>object boundary accuracy</em>, and{" "}
+								<em>spatial coherence</em> across many categories.
+							</p>
 							<div className='mt-6 rounded-xl border border-purple-100/70 bg-purple-50/50 p-4 dark:border-purple-500/20 dark:bg-purple-500/5'>
 								<h4 className='mb-3 text-sm font-semibold uppercase tracking-wider text-purple-600 dark:text-purple-300'>
 									This project strengthened my practical understanding of:
 								</h4>
 								<ul className='space-y-2 text-sm'>
-								<li className='flex items-start gap-3'>
-									<span className='mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-purple-500 dark:bg-purple-400' />
-									<span>Transformer architectures (Swin, ViT-family, UniCL)</span>
-								</li>
-								<li className='flex items-start gap-3'>
-									<span className='mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-purple-500 dark:bg-purple-400' />
-									<span>Weakly supervised segmentation pipelines</span>
-								</li>
-								<li className='flex items-start gap-3'>
-									<span className='mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-purple-500 dark:bg-purple-400' />
-									<span>CAM refinement, affinity propagation, and mask generation</span>
-								</li>
-								<li className='flex items-start gap-3'>
-									<span className='mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-purple-500 dark:bg-purple-400' />
-									<span>Designing and evaluating ML experiments</span>
-								</li>
-								<li className='flex items-start gap-3'>
-									<span className='mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-purple-500 dark:bg-purple-400' />
-									<span>Building reproducible research codebases</span>
-								</li>
+									<li className='flex items-start gap-3'>
+										<span className='mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-purple-500 dark:bg-purple-400' />
+										<span>Transformer architectures (Swin, ViT-family, UniCL)</span>
+									</li>
+									<li className='flex items-start gap-3'>
+										<span className='mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-purple-500 dark:bg-purple-400' />
+										<span>Weakly supervised segmentation pipelines</span>
+									</li>
+									<li className='flex items-start gap-3'>
+										<span className='mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-purple-500 dark:bg-purple-400' />
+										<span>CAM refinement, affinity propagation, and mask generation</span>
+									</li>
+									<li className='flex items-start gap-3'>
+										<span className='mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-purple-500 dark:bg-purple-400' />
+										<span>Designing and evaluating ML experiments</span>
+									</li>
+									<li className='flex items-start gap-3'>
+										<span className='mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-purple-500 dark:bg-purple-400' />
+										<span>Building reproducible research codebases</span>
+									</li>
 								</ul>
 							</div>
 						</div>
 					</div>
 				</div>
-			</div>
+			</motion.div>
 		</motion.section>
 	);
 }
